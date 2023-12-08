@@ -3,14 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>You Need To Hear This</title>
 </head>
 <body>
-    <section class="textInput">
-        <div class="userEntry">
-            <textarea style="overflow:hidden" spellcheck="false" placeholder="Tell me what or how you're feeling."></textarea>
-        </div>
+    <h2>Share your thought:</h2>
+    <input type="text" id="thought-input" placeholder="Write your thought here...">
+    <button id="submit-button">Submit</button>
+    <br>
+    <p id="message-output"></p>
 
-    </section>
+    <script>
+        const submitButton = document.getElementById('submit-button');
+        const messageOutput = document.getElementById('message-output');
+
+        const messages = [
+          "You got this.",
+          "I believe in you.",
+          "We want you to win.",
+          "Do not ever give up. Just keep trying.",
+          "You are the one to make this work.",
+          "This is your time.",
+        ];
+
+        submitButton.addEventListener('click', () => {
+          // Generate a random index between 0 and the number of messages
+          const randomIndex = Math.floor(Math.random() * messages.length);
+
+          // Choose the corresponding message from the array
+          const message = messages[randomIndex];
+
+          // Display the random message
+          messageOutput.textContent = message;
+        });
+    </script>
 </body>
 </html>
