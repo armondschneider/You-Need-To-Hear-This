@@ -8,36 +8,37 @@
 </head>
 <body>
     <div class="container">
-        <input class="input" type="text" id="thought-input" placeholder="Write your thought here...">
-        <button class="button" id="submit-button">Let's listen</button>
-        <br>
-        <p id="message-output"></p>
+      <textarea class="input" id="thought-input" placeholder="Write your thought here..."></textarea>
+        <div>
+          <button class="button" id="submit-button">Let's listen</button>
+        </div>
+        <p class="messageoutput" id="message-output"></p>
     </div>
 
+    <!-- Message script -->
     <script>
-        const submitButton = document.getElementById('submit-button');
-        const messageOutput = document.getElementById('message-output');
-
-        const messages = [
-          "You got this.",
-          "I believe in you.",
-          "We want you to win.",
-          "Do not ever give up. Just keep trying.",
-          "You are the one to make this work.",
-          "This is your time.",
-        ];
-
-        // Script
-        submitButton.addEventListener('click', () => {
-          // Generate a random index between 0 and the number of messages
-          const randomIndex = Math.floor(Math.random() * messages.length);
-
-          // Choose the corresponding message from the array
-          const message = messages[randomIndex];
-
-          // Display the random message
-          messageOutput.textContent = message;
-        });
+      const submitButton = document.getElementById('submit-button');
+      const messageOutput = document.getElementById('message-output');
+      
+      const messages = [
+        "You got this.",
+        "I believe in you.",
+        "We want you to win.",
+        "Do not ever give up. Just keep trying.",
+        "You are the one to make this work.",
+        "This is your time.",
+      ];
+      
+      submitButton.addEventListener('click', () => {
+        // Generate a random index between 0 and the number of messages
+        const randomIndex = Math.floor(Math.random() * messages.length);
+      
+        // Choose the corresponding message from the array
+        const message = messages[randomIndex];
+      
+        // Replace newline characters with HTML line breaks
+        messageOutput.textContent = message.replace(/\n/g, "<br>");
+      });
     </script>
 </body>
 </html>
