@@ -1,44 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
     <title>You Need To Hear This</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-      <textarea class="input" id="thought-input" placeholder="Write your thought here..."></textarea>
-        <div>
-          <button class="button" id="submit-button">Let's listen</button>
-        </div>
-        <p class="messageoutput" id="message-output"></p>
+      <textarea
+        class="input"
+        id="thought-input"
+        placeholder="Write your thought here..."
+      ></textarea>
+      <div>
+        <button class="button" id="submit-button">Let go</button>
+      </div>
+      <p class="messageoutput" id="message-output"></p>
     </div>
-
-    <!-- Message script -->
-    <script>
-      const submitButton = document.getElementById('submit-button');
-      const messageOutput = document.getElementById('message-output');
-      
-      const messages = [
-        "You got this.",
-        "I believe in you.",
-        "We want you to win.",
-        "Do not ever give up. Just keep trying.",
-        "You are the one to make this work.",
-        "This is your time.",
-      ];
-      
-      submitButton.addEventListener('click', () => {
-        // Generate a random index between 0 and the number of messages
-        const randomIndex = Math.floor(Math.random() * messages.length);
-      
-        // Choose the corresponding message from the array
-        const message = messages[randomIndex];
-      
-        // Replace newline characters with HTML line breaks
-        messageOutput.textContent = message.replace(/\n/g, "<br>");
-      });
-    </script>
-</body>
+  </body>
 </html>
