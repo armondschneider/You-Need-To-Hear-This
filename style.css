@@ -15,7 +15,17 @@ body, html {
   }
 
   .input {
-    text-decoration: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    font: 13px sans-serif
+  }
+  
+  .button {
+    background-color: white;
+    padding: 25;
+    font: 13px sans-serif;
   }
 
   p {

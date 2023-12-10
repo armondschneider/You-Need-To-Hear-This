@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" id="thought-input" placeholder="Write your thought here...">
-        <button id="submit-button">Submit</button>
+        <input class="input" type="text" id="thought-input" placeholder="Write your thought here...">
+        <button class="button" id="submit-button">Let's listen</button>
         <br>
         <p id="message-output"></p>
     </div>
@@ -27,6 +27,7 @@
           "This is your time.",
         ];
 
+        // Script
         submitButton.addEventListener('click', () => {
           // Generate a random index between 0 and the number of messages
           const randomIndex = Math.floor(Math.random() * messages.length);
