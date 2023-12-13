@@ -1,6 +1,7 @@
 const submitButton = document.getElementById("submit-button");
 const messageOutput = document.getElementById("message-output");
 const input = document.getElementById("thought-input");
+const refreshButton = document.getElementById("refresh-button");
 
 const messages = [
   "You got this.",
@@ -20,10 +21,9 @@ submitButton.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.floor(Math.random() * messages.length));
   const message = messages[randomIndex];
 
-  // Display the message with a transition effect
+  // Display the message with a transition effect and mark it visible
   messageOutput.textContent = message;
-  messageOutput.style.display = "block";
-  messageOutput.style.opacity = 25;
+  messageOutput.classList.add("visible");
   messageOutput.style.transition = "opacity 2.0s ease-in-out";
 
   // Set the button's position to stay fixed
@@ -31,4 +31,14 @@ submitButton.addEventListener("click", () => {
   submitButton.style.top = "100%";
   submitButton.style.left = "50%";
   submitButton.style.transform = "translate(-50%, -50%)";
+
+  // Show the refresh button after message appears
+  messageOutput.addEventListener("transitionend", () => {
+    refreshButton.style.display = "block";
+  });
 });
+
+refreshButton.addEventListener("click", () => {
+  location.reload();
+});
+
