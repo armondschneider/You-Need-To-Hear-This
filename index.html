@@ -7,6 +7,7 @@
     <title>Affirmation Lifting</title>
   </head>
   <body>
+    <div class="background"></div>
     <div class="container">
       <textarea
         class="input"
@@ -26,35 +27,44 @@
       const input = document.getElementById("thought-input");
 
       const messages = [
-        "You got this.",
-        "I believe in you.",
-        "We want you to win.",
-        "Do not ever give up. Just keep trying.",
-        "You are the one to make this work.",
+        "You are capable of amazing things.",
+        "Embrace the uncertainty. Some of the most beautiful chapters in our lives won’t have a title until much later.",
+        "Your potential is endless.",
+        "Believe you can, and you're halfway there.",
+        "You are stronger than you think.",
         "This is your time.",
+        "Every day is a new beginning.",
+        "You are worthy of love and happiness.",
+        "Your journey is your own. Embrace the path you're on and trust the process."
       ];
 
       submitButton.addEventListener("click", () => {
-        // Hide the input field with a transition effect
         input.style.opacity = 0;
-        input.style.transition = "opacity 0.2s ease-in-out";
+        input.style.transition = "opacity 0.5s ease-in-out";
 
         // Generate a random message
-        const randomIndex = Math.floor(
-          Math.floor(Math.random() * messages.length)
-        );
+        const randomIndex = Math.floor(Math.random() * messages.length);
         const message = messages[randomIndex];
 
-        // Display the message with a transition effect and mark it visible
-        messageOutput.textContent = message;
-        messageOutput.classList.add("visible");
-        messageOutput.style.transition = "opacity 2.0s ease-in-out";
+        // Delay message update for a smoother reveal
+        setTimeout(() => {
+          messageOutput.textContent = message;
 
-        // Set the button's position to stay fixed
-        submitButton.style.position = "absolute";
-        submitButton.style.top = "100%";
-        submitButton.style.left = "50%";
-        submitButton.style.transform = "translate(-50%, -50%)";
+          // Set a slower transition when showing the message
+          messageOutput.style.transition = "opacity 2s ease-in-out"; 
+          messageOutput.style.opacity = 1; 
+
+          //Fix position for button
+          submitButton.style.position = "absolute";
+          submitButton.style.top = "100%";
+          submitButton.style.left = "50%";
+          submitButton.style.transform = "translate(-50%, -50%)";
+
+          // Reload the page after 10 seconds
+          setTimeout(() => {
+            location.reload();
+          }, 10000);
+        }, 1000);
       });
     </script>
   </body>
