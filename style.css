@@ -1,11 +1,9 @@
 body, html {
-  background-color: white;
   margin: 0;
   overflow: hidden;
-}
-
-.thought-input {
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #fcddff, #ecfdff, #fff1e1, #ffc9c965);
+  background-size: 300% 300%;
+  animation: gradientMovement 40s ease infinite;
 }
 
 .container {
@@ -23,6 +21,7 @@ body, html {
   font: 24px sans-serif;
   resize: none;
   width: 50%;
+  transition: opacity 0.5s ease-in-out;
 }
 
 input:focus,
@@ -54,19 +53,49 @@ select:focus {
 
 .messageoutput {
   font-family: Arial, Helvetica, sans-serif;
-  display: none; /* Initially hidden */
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
   position: absolute;
-  top: 270px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+
+.messageoutput.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Gradient background */
+
+.background {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  text-align: center;
-  font-size: 24px;
-  opacity: 0; /* Start hidden with opacity */
-  transition: opacity 2.0s ease-in-out;
+  z-index: -1;
+  animation: backgroundMovement 40s linear infinite;
 }
 
-.messageoutput.visible { /* Class applied to show message and refresh button */
-  display: block;
-  opacity: 1;
+@keyframes backgroundMovement {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
