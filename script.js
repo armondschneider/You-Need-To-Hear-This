@@ -1,7 +1,6 @@
 const submitButton = document.getElementById("submit-button");
 const messageOutput = document.getElementById("message-output");
 const input = document.getElementById("thought-input");
-const refreshButton = document.getElementById("refresh-button");
 
 const messages = [
   "You got this.",
@@ -31,14 +30,5 @@ submitButton.addEventListener("click", () => {
   submitButton.style.top = "100%";
   submitButton.style.left = "50%";
   submitButton.style.transform = "translate(-50%, -50%)";
-
-  // Show the refresh button after message appears
-  messageOutput.addEventListener("transitionend", () => {
-    refreshButton.style.display = "block";
-  });
-});
-
-refreshButton.addEventListener("click", () => {
-  location.reload();
-});
+})
 
